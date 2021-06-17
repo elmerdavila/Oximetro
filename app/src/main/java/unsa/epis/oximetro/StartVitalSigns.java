@@ -8,6 +8,7 @@ import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -32,6 +33,11 @@ public class StartVitalSigns extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_vital_signs);
+
+        //Checking for camera
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, 1);
+        }
 
         /*Bundle extras = getIntent().getExtras();
         if (extras != null) {
@@ -61,15 +67,7 @@ public class StartVitalSigns extends AppCompatActivity {
         });
     }
 
-
-
-    /*@Override
-    public void onBackPressed() {
-        Intent i = new Intent(unsa.epis.oximetro.StartVitalSigns.this, Primary.class);
-        startActivity(i);
-        finish();
-        super.onBackPressed();
-    }*/
+    
 
 
 }
