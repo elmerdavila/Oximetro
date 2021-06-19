@@ -36,17 +36,30 @@ public class O2Result extends AppCompatActivity {
             RO2.setText(String.valueOf(O2));
         }
 
-        /*SO2.setOnClickListener(v -> {
-            Intent i = new Intent(Intent.ACTION_SEND);
-            i.setType("message/rfc822");
-            i.putExtra(Intent.EXTRA_EMAIL, new String[]{"recipient@example.com"});
-            i.putExtra(Intent.EXTRA_SUBJECT, "Health Watcher");
-            i.putExtra(Intent.EXTRA_TEXT, user + "'s Oxygen Saturation Level " + "\n" + " at " + Date + " is :   " + O2);
-            try {
-                startActivity(Intent.createChooser(i, "Send mail..."));
-            } catch (android.content.ActivityNotFoundException ex) {
-                Toast.makeText(unsa.epis.oximetro.O2Result.this, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
-            }
+        // AGREGAR EL TEXTO DE RESULTADO DEPENDIENDO DEL NIVEL DE OXIGENACION
+
+        if(O2<60){
+
+        }
+        else if(O2>20 && O2 < 40){
+
+        }
+        else if(O2 > 40 && O2 < 80){
+
+        }
+        else{
+
+        }
+
+        // AGREGAR EL ID DEL BOTON CORRESPONDIENTE PARA PASAR A LA INTERFAZ DE RESULTADOS
+        /*ImageButton VS = this.findViewById(R.id.imageView3);
+
+        VS.setOnClickListener(v -> {
+
+
+            Intent i = new Intent(this, MyResults.class);
+
+            startActivity(i);
         });*/
 
     }

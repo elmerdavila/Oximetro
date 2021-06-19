@@ -33,6 +33,10 @@
             android:name=".O2Result"
             android:configChanges="orientation"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".MyResults"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
 
 
 
