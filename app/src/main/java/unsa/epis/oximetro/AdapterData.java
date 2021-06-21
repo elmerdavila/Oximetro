@@ -12,9 +12,9 @@ import java.util.ArrayList;
 public class AdapterData extends RecyclerView.Adapter<AdapterData.ViewHolderData> {
 
 
-    private ArrayList<String> listdata;
+    private ArrayList<Evaluation> listdata;
 
-    public AdapterData( ArrayList<String> listdata) {
+    public AdapterData(ArrayList<Evaluation> listdata) {
         this.listdata = listdata;
     }
 
@@ -44,8 +44,8 @@ public class AdapterData extends RecyclerView.Adapter<AdapterData.ViewHolderData
             //dato= (TextView) itemView.findViewById(R.id.dato);
         }
 
-        public void mapData(String s) {
-            dato.setText(s);
+        public void mapData(Evaluation evaluation) {
+            dato.setText(evaluation.getDate());
         }
     }
 }
