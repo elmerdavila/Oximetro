@@ -34,6 +34,7 @@ public class O2Result extends AppCompatActivity {
             O2 = bundle.getInt("O2R");
             user = bundle.getString("Usr");
             RO2.setText(String.valueOf(O2));
+            
         }
 
         /*SO2.setOnClickListener(v -> {

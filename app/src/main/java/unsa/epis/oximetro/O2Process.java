@@ -100,7 +100,6 @@ public class O2Process extends Activity {
         super.onConfigurationChanged(newConfig);
     }
 
-
     //Wakelock + Open device camera + set orientation to 90 degree
     //store system time as a start time for the analyzing process
     //your activity to start interacting with the user.
