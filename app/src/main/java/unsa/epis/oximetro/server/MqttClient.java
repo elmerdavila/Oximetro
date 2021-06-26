@@ -72,7 +72,7 @@ public class MqttClient {
         @Override
         public void onSuccess(IMqttToken asyncActionToken) {
             Toast.makeText(context,MESSAGE_CONNECT, Toast.LENGTH_SHORT).show();
-            subscriptionRadiationUV();//SI hay conexión se suscribe al topic HEALTH TOPIC
+            //subscriptionRadiationUV();//SI hay conexión se suscribe al topic HEALTH TOPIC
 
         }
         @Override
@@ -80,5 +80,7 @@ public class MqttClient {
             Toast.makeText(context,MESSAGE_ERROR_CONNECT, Toast.LENGTH_SHORT).show();
         }
     };
+
+
 
 }
