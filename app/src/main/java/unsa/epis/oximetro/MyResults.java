@@ -38,7 +38,7 @@ public class MyResults extends Activity {
 
         //****************AQUI SE DEBEN COLOCAR LOS DATOS DE MYSQL
 
-        ConectionHttp conectionHttp=new ConectionHttp();
+        ConectionHttp conectionHttp=new ConectionHttp(getApplicationContext());
 
         listEvaluations=conectionHttp.getMyResults();
 
