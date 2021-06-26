@@ -26,7 +26,6 @@ public class MyResults extends Activity {
     private ArrayList<Evaluation> listEvaluations;
     private RecyclerView recyclerView;
 
-    private static final String URL_MySql = "http://";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -39,7 +38,9 @@ public class MyResults extends Activity {
 
         //****************AQUI SE DEBEN COLOCAR LOS DATOS DE MYSQL
 
-        getMyResults();
+        ConectionHttp conectionHttp=new ConectionHttp();
+
+        listEvaluations=conectionHttp.getMyResults();
 
         //***************************************************
 
@@ -47,35 +48,4 @@ public class MyResults extends Activity {
         recyclerView.setAdapter(adapterData);
     }
 
-    public void getMyResults() {
-
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, URL_MySql,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        try {
-                            JSONArray array = new JSONArray(response);
-
-                            for (int i = 0; i < array.length(); i++) {
-                                JSONObject data = array.getJSONObject(i);
-
-                                listEvaluations.add(new Evaluation(
-                                        data.getInt("Oxigenacion"),
-                                        data.getString("Fecha")));
-                            }
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-
-                    }
-                });
-
-
-    }
 }

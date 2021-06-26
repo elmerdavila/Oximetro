@@ -28,10 +28,11 @@ public class O2Result extends AppCompatActivity {
         Date = df.format(today);
         TextView RO2 = this.findViewById(R.id.O2R);
         //ImageButton SO2 = this.findViewById(R.id.SendO2);
-
+        ConectionHttp conection=new ConectionHttp();
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
             O2 = bundle.getInt("O2R");
+            O2=new Filters().lowPass(O2,conection.lastMeasure());
             user = bundle.getString("Usr");
             RO2.setText(String.valueOf(O2));
         }
