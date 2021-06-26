@@ -10,7 +10,6 @@
     <uses-permission android:name="android.permission.FLASHLIGHT" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
-
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -41,6 +40,11 @@
             android:screenOrientation="portrait" />
         <service android:name="org.eclipse.paho.android.service.MqttService" ><!--SERVICIO PARA USAR MQTT-->
         </service>
+
+        <activity
+            android:name=".MyResults"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

@@ -67,7 +67,7 @@ public class StartVitalSigns extends AppCompatActivity {
         });
     }
 
-    
+
 
 
 }
