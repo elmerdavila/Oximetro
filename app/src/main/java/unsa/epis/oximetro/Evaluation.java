@@ -1,27 +1,25 @@
 package unsa.epis.oximetro;
 
 public class Evaluation {
-    private int oxygenation;
-    private String date;
+    private String medida;
+    private String fecha;
+    public Evaluation(){
 
-    public Evaluation(int oxygenation, String date) {
-        this.oxygenation = oxygenation;
-        this.date = date;
     }
-
-    public int getOxygenation() {
-        return oxygenation;
+    public Evaluation(String medida,String fecha){
+        this.medida=medida;
+        this.fecha=fecha;
     }
-
-    public String getDate() {
-        return date;
+    public String getMedida(){
+        return medida;
     }
-
-    public void setOxygenation(int oxygenation) {
-        this.oxygenation = oxygenation;
+    public String getFecha(){
+        return fecha;
     }
-
-    public void setDate(String date) {
-        this.date = date;
+    public void setMedida(){
+       this.medida=medida;
+    }
+    public void setFecha(){
+        this.fecha=fecha;
     }
 }

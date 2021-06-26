@@ -13,6 +13,17 @@
     android:paddingBottom="16dp"
     tools:context="unsa.epis.oximetro.StartVitalSigns">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_weight="0.87"
+        android:fontFamily="casual"
+        android:text="Instrucciones"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimary"
+        android:textSize="22sp"
+        android:textStyle="bold" />/>
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="wrap_content"
@@ -30,8 +41,8 @@
         android:layout_height="wrap_content"
         android:layout_weight="0.87"
         android:fontFamily="casual"
-        android:text="- Lightly place your index finger on \n   the rear camera.\n- Make sure the camera is fully \n   covered. \n- Measure in a shaded environment. \n- Don't move your finger until the \n   measurement is complete. \n- Finally place your finger then press \n   start. "
-        android:textColor="@color/colorPrimaryDark"
+        android:text="- Por favor inserte su dedo en la luz flash de su dispositivo y asegúrese que su dedo cubra la cámara como se muestra en la imagen anterior.\n- Mantenga su dedo en esa posición hasta que la barra que aparezca en su pantalla esté completamente llena.\n- No mueva su dedo antes que la barra se haya completado por favor.\n- Una vez que la barra se haya llenado, usted puede retirar su dedo y verificar los resultados.\n- Gracias por tu atención, pulse en empezar para continuar."
+        android:textColor="@color/colorPrimary"
         android:textSize="12sp"
         android:textStyle="bold" />
 
@@ -42,11 +53,9 @@
 
     <ImageButton
         android:id="@+id/StartVS"
-        android:layout_width="wrap_content"
-        android:layout_height="90dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
         android:background="@android:color/transparent"
-        app:srcCompat="@mipmap/start" />
+        app:srcCompat="@mipmap/empezar" />
 </LinearLayout>

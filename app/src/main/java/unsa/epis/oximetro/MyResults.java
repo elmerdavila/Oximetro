@@ -25,6 +25,7 @@ public class MyResults extends Activity {
 
     private ArrayList<Evaluation> listEvaluations;
     private RecyclerView recyclerView;
+    private RecyclerView.Adapter mAdapter;
 
 
     @Override
@@ -43,9 +44,17 @@ public class MyResults extends Activity {
         listEvaluations=conectionHttp.getMyResults();
 
         //***************************************************
+        recyclerView = (RecyclerView) findViewById(R.id.reyclerViewUser);
 
-        AdapterData adapterData=new AdapterData(listEvaluations);
-        recyclerView.setAdapter(adapterData);
+        // use this setting to improve performance if you know that changes
+        // in content do not change the layout size of the RecyclerView
+        recyclerView.setHasFixedSize(true);
+
+        // use a linear layout manager
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        mAdapter=new CustomAdapter(listEvaluations);
+        recyclerView.setAdapter(mAdapter);
     }
 
 }
