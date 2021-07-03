@@ -30,7 +30,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ConectionHttp {
 
-
     private ArrayList<Evaluation> listEvaluations = new ArrayList<Evaluation>();
     RecyclerView recyclerView;
     public ConectionHttp(RecyclerView recyclerView, Context context){
@@ -44,7 +43,7 @@ public class ConectionHttp {
 
     public void getMyResults(Context context) {
 
-        String url = "https://jsonplaceholder.typicode.com/posts";
+        String url = "http://192.168.1.49/apiphp/oximeterget.php";
         StringRequest stringRequest = new StringRequest(url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -54,8 +53,8 @@ public class ConectionHttp {
                     for (int i = 0; i < array.length(); i++) {
                         JSONObject data = array.getJSONObject(i);
                         Evaluation a=new Evaluation(
-                                Integer.parseInt(data.getString("id")),
-                                data.getString("title"));
+                                data.getInt("measure"),
+                                data.getString("time"));
                        listEvaluations.add(a);
 
 

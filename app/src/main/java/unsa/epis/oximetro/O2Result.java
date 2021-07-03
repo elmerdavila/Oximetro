@@ -15,13 +15,15 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+import unsa.epis.oximetro.server.MqttClient;
+
 public class O2Result extends AppCompatActivity {
 
-    private String user, Date;
+
     DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
     Date today = Calendar.getInstance().getTime();
     int O2;
-
+    MqttClient mqttserver= new MqttClient(this);
     private Button my_result;
 
     @Override
@@ -29,15 +31,13 @@ public class O2Result extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_o2_result);
 
-        Date = df.format(today);
         TextView RO2 = this.findViewById(R.id.O2R);
         //ImageButton SO2 = this.findViewById(R.id.SendO2);
-        ConectionHttp conection=new ConectionHttp();
+
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
             O2 = bundle.getInt("O2R");
-            O2=new Filters().lowPass(O2,conection.lastMeasure());
-            user = bundle.getString("Usr");
+            mqttserver.publishOximeterMeasure(""+O2);
             RO2.setText(String.valueOf(O2));
         }
 
@@ -59,17 +59,6 @@ public class O2Result extends AppCompatActivity {
         my_result=this.findViewById(R.id.btn_my_results);
         my_result.setOnClickListener(CallbackOnclick);
 
-        // AGREGAR EL ID DEL BOTON CORRESPONDIENTE PARA PASAR A LA INTERFAZ DE RESULTADOS
-        /*ImageButton VS = this.findViewById(R.id.imageView3);
-
-        VS.setOnClickListener(v -> {
-
-
-            Intent i = new Intent(this, MyResults.class);
-
-            startActivity(i);
-        });*/
-
     }
 
     View.OnClickListener CallbackOnclick=new View.OnClickListener() {
@@ -82,9 +71,7 @@ public class O2Result extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-
         Intent i = new Intent(unsa.epis.oximetro.O2Result.this, O2Process.class);
-        i.putExtra("Usr", user);
         startActivity(i);
         finish();
         super.onBackPressed();
