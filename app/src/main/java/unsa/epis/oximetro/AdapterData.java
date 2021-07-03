@@ -45,7 +45,7 @@ public class AdapterData extends RecyclerView.Adapter<AdapterData.ViewHolderData
         }
 
         public void mapData(Evaluation evaluation) {
-            dato.setText(evaluation.getDate());
+            dato.setText(evaluation.getMedida());
         }
     }
 }

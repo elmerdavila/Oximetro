@@ -13,6 +13,13 @@
     android:paddingBottom="16dp"
     tools:context="unsa.epis.oximetro.StartVitalSigns">
 
+    <Button
+        android:id="@+id/btn_my_result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.87"
+        android:text="Mis Resultados" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -58,4 +65,5 @@
         android:layout_marginBottom="30dp"
         android:background="@android:color/transparent"
         app:srcCompat="@mipmap/empezar" />
+
 </LinearLayout>

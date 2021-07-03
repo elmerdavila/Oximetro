@@ -1,23 +1,13 @@
 package unsa.epis.oximetro;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
-import android.widget.ImageButton;
-import android.widget.LinearLayout;
+import android.util.Log;
+
 
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -27,33 +17,23 @@ public class MyResults extends Activity {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter mAdapter;
 
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //recyclerView=(RecyclerView) findViewById(R.id.recyclerview);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL,false));
 
-        listEvaluations=new ArrayList<>();
+        ConectionHttp conectionHttp=new ConectionHttp();
+        conectionHttp.getMyResults(this);
 
-        //****************AQUI SE DEBEN COLOCAR LOS DATOS DE MYSQL
+        recyclerView = (RecyclerView) findViewById(R.id.recycleroximeter);
+        mAdapter=new CustomAdapter(listEvaluations);
+        if(recyclerView==null){
+            Log.d("testing","El objeto recycler view es null");
+        }
+//        recyclerView.setHasFixedSize(true);
 
-        ConectionHttp conectionHttp=new ConectionHttp(getApplicationContext());
-
-        listEvaluations=conectionHttp.getMyResults();
-
-        //***************************************************
-        recyclerView = (RecyclerView) findViewById(R.id.reyclerViewUser);
-
-        // use this setting to improve performance if you know that changes
-        // in content do not change the layout size of the RecyclerView
-        recyclerView.setHasFixedSize(true);
-
-        // use a linear layout manager
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        mAdapter=new CustomAdapter(listEvaluations);
         recyclerView.setAdapter(mAdapter);
     }
 

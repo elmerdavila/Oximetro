@@ -2,6 +2,8 @@ package unsa.epis.oximetro;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,6 +21,8 @@ public class O2Result extends AppCompatActivity {
     DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
     Date today = Calendar.getInstance().getTime();
     int O2;
+
+    private Button my_result;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +56,9 @@ public class O2Result extends AppCompatActivity {
 
         }
 
+        my_result=this.findViewById(R.id.btn_my_results);
+        my_result.setOnClickListener(CallbackOnclick);
+
         // AGREGAR EL ID DEL BOTON CORRESPONDIENTE PARA PASAR A LA INTERFAZ DE RESULTADOS
         /*ImageButton VS = this.findViewById(R.id.imageView3);
 
@@ -64,6 +71,14 @@ public class O2Result extends AppCompatActivity {
         });*/
 
     }
+
+    View.OnClickListener CallbackOnclick=new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            Intent i = new Intent(O2Result.this, Recycler.class);
+            startActivity(i);
+        }
+    };
 
     @Override
     public void onBackPressed() {

@@ -1,5 +1,6 @@
 package unsa.epis.oximetro;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +13,7 @@ import java.util.List;
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder> {
 
        // private Item[] localDataSet;
-        private List<Evaluation> localDataSet;
+      private  List<Evaluation> localDataSet;
 
     public CustomAdapter(List<Evaluation> itemList) {
         this.localDataSet = itemList;
@@ -29,7 +30,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
                 super(view);
                 // Define click listener for the ViewHolder's View
 
-                textView = (TextView) view.findViewById(R.id.textView);
+                textView = (TextView) view.findViewById(R.id.textView1);
                 textView2 =(TextView) view.findViewById(R.id.textView2);
             }
 
@@ -64,6 +65,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
         // Return the size of your dataset (invoked by the layout manager)s
         @Override
         public int getItemCount() {
+            Log.d("testing","tamañoooooooooooooooo:"+localDataSet.size()+"---------------------------");
             return localDataSet.size();
         }
 

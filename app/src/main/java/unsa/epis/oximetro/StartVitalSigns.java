@@ -4,6 +4,8 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
@@ -16,6 +18,7 @@ import androidx.fragment.app.FragmentTransaction;
 public class StartVitalSigns extends AppCompatActivity {
     private String user;
     private int p;
+    private Button my_result;
 
 
     //Camera Permission
@@ -45,6 +48,9 @@ public class StartVitalSigns extends AppCompatActivity {
             p = extras.getInt("Page");
         }*/
 
+        my_result=this.findViewById(R.id.btn_my_result);
+        my_result.setOnClickListener(CallbackOnclick);
+
         ImageButton VS = this.findViewById(R.id.StartVS);
 
         VS.setOnClickListener(v -> {
@@ -66,6 +72,14 @@ public class StartVitalSigns extends AppCompatActivity {
 
         });
     }
+
+    View.OnClickListener CallbackOnclick=new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            Intent i = new Intent(StartVitalSigns.this, Recycler.class);
+            startActivity(i);
+        }
+    };
 
 
 
