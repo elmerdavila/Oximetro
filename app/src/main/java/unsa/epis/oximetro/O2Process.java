@@ -222,7 +222,7 @@ public class O2Process extends Activity {
             if (o2 != 0) {
                 Intent i = new Intent(unsa.epis.oximetro.O2Process.this, O2Result.class);
                 i.putExtra("O2R", o2);
-                i.putExtra("Usr", user);
+
                 startActivity(i);
                 finish();
             }
