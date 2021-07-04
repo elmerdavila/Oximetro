@@ -23,7 +23,7 @@ public class O2Result extends AppCompatActivity {
     DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
     Date today = Calendar.getInstance().getTime();
     int O2;
-    //MqttClient mqttserver= new MqttClient(this);
+
     private Button my_result;
 
     @Override
@@ -37,7 +37,7 @@ public class O2Result extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
             O2 = bundle.getInt("O2R");
-            //mqttserver.publishOximeterMeasure(""+O2);
+
             RO2.setText(String.valueOf(O2));
         }
 

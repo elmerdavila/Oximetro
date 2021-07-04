@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import unsa.epis.oximetro.Math.Fft;
+import unsa.epis.oximetro.server.MqttClient;
 
 import static java.lang.Math.ceil;
 import static java.lang.Math.sqrt;
@@ -62,7 +63,7 @@ public class O2Process extends Activity {
     public ArrayList<Double> RedAvgList = new ArrayList<Double>();
     public ArrayList<Double> BlueAvgList = new ArrayList<Double>();
     public int counter = 0;
-
+    MqttClient mqttserver;
 
     @SuppressLint("InvalidWakeLockTag")
     @Override
@@ -75,7 +76,7 @@ public class O2Process extends Activity {
             user = extras.getString("Usr");
             //The key argument here must match that used in the other activity
         }
-
+        mqttserver=new MqttClient(this);
         // XML - Java Connecting
         preview = findViewById(R.id.preview);
         previewHolder = preview.getHolder();
@@ -220,6 +221,7 @@ public class O2Process extends Activity {
             }
 
             if (o2 != 0) {
+                mqttserver.publishOximeterMeasure(""+o2);
                 Intent i = new Intent(unsa.epis.oximetro.O2Process.this, O2Result.class);
                 i.putExtra("O2R", o2);
 

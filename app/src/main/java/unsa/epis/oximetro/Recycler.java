@@ -35,7 +35,7 @@ public class Recycler extends AppCompatActivity {
         ConectionHttp conectionHttp=new ConectionHttp(recyclerView,this);
         listEvaluations= new ArrayList<Evaluation>();
         conectionHttp.getMyResults(this);
-        Log.d("testing",""+listEvaluations.size());
+
 
         if(recyclerView==null){
             Log.d("testing","El objeto recycler view es null");

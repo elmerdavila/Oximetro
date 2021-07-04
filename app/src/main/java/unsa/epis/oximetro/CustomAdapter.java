@@ -24,22 +24,23 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
          * (custom ViewHolder).
          */
         public static class ViewHolder extends RecyclerView.ViewHolder {
-            private TextView textView;
+            private TextView textView1;
             private TextView textView2;
             public ViewHolder(View view) {
                 super(view);
                 // Define click listener for the ViewHolder's View
 
-                textView = (TextView) view.findViewById(R.id.textView1);
+                textView1 = (TextView) view.findViewById(R.id.textView1);
                 textView2 =(TextView) view.findViewById(R.id.textView2);
             }
 
-            public TextView getTextView() {
-                return textView;
+            public TextView getTextView1() {
+                return textView1;
             }
-            public TextView getTextView2(){
+            public TextView getTextView2() {
                 return textView2;
             }
+
         }
 
         // Create new views (invoked by the layout manager)
@@ -59,7 +60,9 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
 
             // Get element from your dataset at this position and replace the
             // contents of the view with that element
-            viewHolder.getTextView().setText(localDataSet.get(position).getMedida()+" "+localDataSet.get(position).getFecha());
+            viewHolder.getTextView1().setText(""+localDataSet.get(position).getMedida());
+            viewHolder.getTextView2().setText(""+localDataSet.get(position).getFecha());
+
         }
 
         // Return the size of your dataset (invoked by the layout manager)s

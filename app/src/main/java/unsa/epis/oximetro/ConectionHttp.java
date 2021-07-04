@@ -27,6 +27,7 @@ import java.util.ArrayList;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import unsa.epis.oximetro.server.MqttClient;
 
 public class ConectionHttp {
 
@@ -36,6 +37,7 @@ public class ConectionHttp {
         this.recyclerView=recyclerView;
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
+
     }
     public ConectionHttp(){
 
@@ -44,9 +46,11 @@ public class ConectionHttp {
     public void getMyResults(Context context) {
 
         String url = "http://192.168.1.49/apiphp/oximeterget.php";
+
         StringRequest stringRequest = new StringRequest(url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
+
                 try {
                     JSONArray array = new JSONArray(response);
                     listEvaluations=new ArrayList<Evaluation>();
@@ -63,6 +67,7 @@ public class ConectionHttp {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
+                Log.d("testing",""+listEvaluations.size());
             }
         }, new Response.ErrorListener() {
             @Override
